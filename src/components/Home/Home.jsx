@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
             <SearchForm />
-            <UserList />
+            {/* <UserList /> */}
             <Users></Users>
         </div>
     )

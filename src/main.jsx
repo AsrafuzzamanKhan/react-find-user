@@ -5,22 +5,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import Root from './Root/Root';
+
+const LazyRoots = React.lazy(() => import('./Root/Root'));
 import Home from './components/Home/Home';
 import UserDetails from './components/UserDetails/UserDetails';
 
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query'
 import SearchUser from './components/Search/SearchUser';
+import UserList from './components/UserList/UserList';
 
-const queryClient = new QueryClient()
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
+    element: <React.Suspense fallback="Loading..."><LazyRoots></LazyRoots></React.Suspense>,
     children: [
       {
         path: '/',
@@ -34,6 +31,11 @@ const router = createBrowserRouter([
         path: '/search',
         element: <SearchUser />
       }
+      ,
+      {
+        path: '/userList',
+        element: <UserList />
+      }
     ]
   },
 ]);
@@ -41,9 +43,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+
+    <RouterProvider router={router} />
+
 
   </React.StrictMode>,
 )

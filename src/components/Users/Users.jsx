@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import User from "./User"
 import axios from 'axios';
 import useUsers from "../../hooks/useUsers";
+import { Link } from "react-router-dom";
 
 const Users = () => {
     // const [users, setUsers] = useState([])
@@ -19,13 +20,15 @@ const Users = () => {
     return (
         <div className="container mx-auto">
 
-            <div>Users:{users?.length}</div>
-            <div className=" grid lg:grid-cols-4 md:grid-cols-2 gap-4">
-                {
-                    users?.map(user => <User key={user.id} user={user}>
+            <div className="my-12">
+                <div>Users:{users?.length}</div>
+                <div className=" grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                    {
+                        users?.map(user => <User key={user.id} user={user}>
 
-                    </User>)
-                }
+                        </User>)
+                    }
+                </div>
             </div>
         </div>
     )

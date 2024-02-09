@@ -7,7 +7,10 @@ const User = ({ user }) => {
         <div className="card glass">
             <figure><img src={image} alt="car!" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{firstName} {lastName}</h2>
+                <div className='hover:text-blue-400 duration-300'>
+                    <Link to={`/userDetails/${id}`}>   <h2 className="card-title">{firstName} {lastName}</h2></Link>
+                </div>
+
                 <p>{email}</p>
                 <p>{company.name}</p>
                 <div>
@@ -15,7 +18,7 @@ const User = ({ user }) => {
                     <p>{address.city}</p>
                 </div>
                 <div className="card-actions justify-end">
-                    <Link to={`/userDetails/${id}`}> <button className="btn btn-primary">Details</button></Link>
+
                 </div>
             </div>
         </div>

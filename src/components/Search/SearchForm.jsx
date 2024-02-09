@@ -38,14 +38,15 @@ const SearchForm = () => {
     }
 
     return (
-        <div className="w-full h-[20vw] flex items-center justify-center bg-cover object-fill bg-no-repeat bg-[url('./assets/cat.jpg')]">
+        <div className="w-full h-[20vw] mt-10 flex items-center justify-center bg-cover object-fill bg-no-repeat bg-[url('./assets/cat.jpg')]">
             <form
                 onSubmit={handleSubmit}
+                className='w-1/2 md:w-1/3'
             >
                 <input
                     onChange={handleSeachInput}
-                    className="relative input dark:bg-white" type="text" placeholder="Type book name or author name ..." />
-                <button className="btn bg-blue-400 absolute rounded-tl-none rounded-bl-none border-0">
+                    className="relative w-full py-3 px-4 rounded dark:bg-white" type="text" placeholder="Type User's First name ..." />
+                <button className="btn py-4 bg-blue-400 absolute  rounded-tl-none rounded-bl-none border-0  justify-center">
                     <FiSearch className="text-xl  dark:text-white"></FiSearch>
                 </button>
             </form>
