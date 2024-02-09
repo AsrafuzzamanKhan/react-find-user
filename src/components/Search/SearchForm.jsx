@@ -24,7 +24,7 @@ const SearchForm = () => {
     }
 
     return (
-        <div className="w-full h-[20vw] mt-20 lg:mt-10 flex items-center justify-center bg-cover object-fill bg-no-repeat bg-[url('./assets/cat.jpg')]">
+        <div className="w-full h-[20vw] mt-20 lg:mt-10 flex items-center justify-center bg-no-repeat bg-center bg-cover bg-[url('./assets/bgImg.png')]">
             <form
                 onSubmit={handleSubmit}
                 className='w-2/3 md:w-1/3 flex'

@@ -4,11 +4,11 @@ const UserList = () => {
     const onSubmit = data => console.log(data);
     console.log(errors);
     return (
-        <div className=" container mx-auto px-2">
-            <div className="flex justify-center items-center min-h-screen text-black">
-                <div className="bg-gray-100 flex items-center rounded-2xl shadow-lg max-w-3xl ">
+        <div className=" container mx-auto px-4">
+            <div className="flex justify-center items-center min-h-screen text-black px-4">
+                <div className="bg-gray-100 rounded-2xl shadow-lg  ">
                     <div className='w-full px-8 py-12' >
-                        <h1 className='text-center font-semibold text-[1.5vw]'>User List Form</h1>
+                        <h1 className='text-center font-semibold text-lg'>User List Form</h1>
                         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
                             <input className="p-2 mt-8 rounded-xl border dark:bg-white" type="text" placeholder="First name" {...register("First name", { required: true, maxLength: 80 })} />
                             <input className="p-2 mt-2 rounded-xl border dark:bg-white" type="text" placeholder="Last name" {...register("Last name", { required: true, maxLength: 100 })} />

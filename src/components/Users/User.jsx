@@ -5,7 +5,7 @@ const User = ({ user }) => {
     return (
         <div className="glass shadow-lg">
             <figure className='flex items-center justify-center'><img src={image} alt="users" /></figure>
-            <div className="p-[1vw]">
+            <div className=" card-body ">
                 <div className='hover:text-blue-400 duration-300 my-1'>
                     <Link to={`/userDetails/${id}`}>   <h2 className="card-title">{firstName} {lastName}</h2></Link>
                 </div>

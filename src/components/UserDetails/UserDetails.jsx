@@ -14,12 +14,12 @@ const UserDetails = () => {
 
                 <div className="shadow-xl flex flex-col md:flex-row items-center py-12 my-12">
                     <figure className="w-1/2 flex justify-center ">
-                        <img className="w-[20vw]" src={userDetail?.image} alt="Album" />
+                        <img className="w-full lg:w-[20vw]" src={userDetail?.image} alt="Album" />
                     </figure>
                     <div className="card-body ">
                         <h2 className="card-title">{userDetail?.firstName} {userDetail?.lastName}</h2>
                         <p><span className="text-blue-600">Email: </span>{userDetail?.email}</p>
-                        <div className=" gap-1"><span className="text-blue-600">Adress: </span>
+                        <div className=" gap-1"><span className="text-blue-600">Address: </span>
                             <span>{userDetail?.address.address}, </span>
                             <span> {userDetail?.address.city}</span>
                         </div>
