@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react"
 import User from "./User"
 import axios from 'axios';
-const Users = () => {
-    const [users, setUsers] = useState([])
+import useUsers from "../../hooks/useUsers";
 
-    useEffect(() => {
-        axios.get('https://dummyjson.com/users')
-            .then(function (response) {
-                // handle success
-                console.log(response.data.users)
-                setUsers(response.data.users)
-            })
-    }, [])
+const Users = () => {
+    // const [users, setUsers] = useState([])
+    const [users] = useUsers()
+    // console.log(users)
+    // useEffect(() => {
+    //     axios.get('https://dummyjson.com/users')
+    //         .then(function (response) {
+    //             // handle success
+    //             console.log(response.data.users)
+    //             setUsers(response.data.users)
+    //         })
+    // }, [])
 
     return (
         <div className="container mx-auto">

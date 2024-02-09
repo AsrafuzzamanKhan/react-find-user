@@ -9,6 +9,14 @@ import Root from './Root/Root';
 import Home from './components/Home/Home';
 import UserDetails from './components/UserDetails/UserDetails';
 
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+import SearchUser from './components/Search/SearchUser';
+
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/userDetails/:id',
         element: <UserDetails />
+      },
+      {
+        path: '/search',
+        element: <SearchUser />
       }
     ]
   },
@@ -29,6 +41,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+
   </React.StrictMode>,
 )

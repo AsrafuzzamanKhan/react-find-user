@@ -1,20 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import useUsers from "../../hooks/useUsers";
 
 const UserDetails = () => {
     const { id } = useParams();
-    const [users, setUsers] = useState([])
+    const [users] = useUsers()
     const idInt = parseInt(id)
-
-    useEffect(() => {
-        axios.get('https://dummyjson.com/users')
-            .then(function (response) {
-                // handle success
-                console.log(response.data.users)
-                setUsers(response.data.users)
-            })
-    }, [])
 
     const userDetail = users.find(user => user.id === idInt)
     console.log(userDetail)
