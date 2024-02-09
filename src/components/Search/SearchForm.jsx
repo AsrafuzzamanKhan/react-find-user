@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { FiSearch } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
 
@@ -6,18 +6,8 @@ const SearchForm = () => {
 
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
-    // const [isAnimating, setIsAnimating] = useState(false);
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            // setIsAnimating(false)
-        }, 1000);
-        // clear time out 
-        return () => clearTimeout(timeout)
-    }, [])
 
     const handleSeachInput = e => {
-        // console.log(e.target.value)
         setSearchTerm(e.target.value)
     }
     const handleSubmit = e => {
@@ -29,24 +19,20 @@ const SearchForm = () => {
             document.querySelector('input').value = '';
             setSearchTerm('')
 
-        } else {
-            // if input is empty set animation to true
-            // setIsAnimating(true)
-
         }
 
     }
 
     return (
-        <div className="w-full h-[20vw] mt-10 flex items-center justify-center bg-cover object-fill bg-no-repeat bg-[url('./assets/cat.jpg')]">
+        <div className="w-full h-[20vw] mt-20 lg:mt-10 flex items-center justify-center bg-cover object-fill bg-no-repeat bg-[url('./assets/cat.jpg')]">
             <form
                 onSubmit={handleSubmit}
-                className='w-1/2 md:w-1/3'
+                className='w-2/3 md:w-1/3 flex'
             >
                 <input
                     onChange={handleSeachInput}
-                    className="relative w-full py-3 px-4 rounded dark:bg-white" type="text" placeholder="Type User's First name ..." />
-                <button className="btn py-4 bg-blue-400 absolute  rounded-tl-none rounded-bl-none border-0  justify-center">
+                    className="w-full py-3 px-4 rounded-l-lg dark:bg-white" type="text" placeholder="Type User's First name ..." />
+                <button className="btn py-4 bg-blue-400 rounded-tl-none rounded-bl-none border-0  justify-center">
                     <FiSearch className="text-xl  dark:text-white"></FiSearch>
                 </button>
             </form>

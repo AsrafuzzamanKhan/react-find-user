@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,29 +8,33 @@ import {
 import './index.css'
 
 const LazyRoots = React.lazy(() => import('./Root/Root'));
-import Home from './components/Home/Home';
-import UserDetails from './components/UserDetails/UserDetails';
+const LazyHome = React.lazy(() => import('./components/Home/Home'));
+const LazyUserDetails = React.lazy(() => import('./components/UserDetails/UserDetails'));
+const LazySearchUser = React.lazy(() => import('./components/Search/SearchUser'));
+// import Home from './components/Home/Home';
+// import UserDetails from './components/UserDetails/UserDetails';
 
-import SearchUser from './components/Search/SearchUser';
+// import SearchUser from './components/Search/SearchUser';
 import UserList from './components/UserList/UserList';
+import Loader from './Loader/Loader';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <React.Suspense fallback="Loading..."><LazyRoots></LazyRoots></React.Suspense>,
+    element: <React.Suspense fallback={<Loader />}><LazyRoots></LazyRoots></React.Suspense>,
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <React.Suspense fallback={<Loader />}><LazyHome /></React.Suspense>
       },
       {
         path: '/userDetails/:id',
-        element: <UserDetails />
+        element: <React.Suspense fallback={<Loader />}><LazyUserDetails /></React.Suspense>
       },
       {
         path: '/search',
-        element: <SearchUser />
+        element: <React.Suspense fallback={<Loader />}><LazySearchUser /></React.Suspense>
       }
       ,
       {
@@ -42,10 +47,11 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
+
   <React.StrictMode>
-
     <RouterProvider router={router} />
-
-
   </React.StrictMode>,
+
+
 )

@@ -1,30 +1,26 @@
-import { useEffect, useState } from "react"
 import User from "./User"
-import axios from 'axios';
 import useUsers from "../../hooks/useUsers";
-import { Link } from "react-router-dom";
 
 const Users = () => {
-    // const [users, setUsers] = useState([])
-    const [users] = useUsers()
-    // console.log(users)
-    // useEffect(() => {
-    //     axios.get('https://dummyjson.com/users')
-    //         .then(function (response) {
-    //             // handle success
-    //             console.log(response.data.users)
-    //             setUsers(response.data.users)
-    //         })
-    // }, [])
+    const [users, records, setRecords] = useUsers()
 
+    const filterUser = e => {
+        e.preventDefault()
+        setRecords(users.filter(f => f.firstName.toLowerCase().includes(e.target.value) || f.email.toLowerCase().includes(e.target.value) || f.company.name.toLowerCase().includes(e.target.value)))
+    }
     return (
         <div className="container mx-auto">
 
-            <div className="my-12">
-                <div>Users:{users?.length}</div>
-                <div className=" grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+            <div className="my-12 px-[1vw] md:px-0">
+
+
+
+                <div className="my-12 flex items-center justify-center bg-slate-400 py-4 rounded gap-4">
+                    <label htmlFor="" className="text-md font-semibold">Filter: </label>
+                    <input type="text" className="p-2  rounded-xl border dark:bg-white w-1/2 " onChange={filterUser} placeholder="First name / Company name/ Email" name="" id="" /></div>
+                <div className=" grid lg:grid-cols-4 md:grid-cols-2 gap-6">
                     {
-                        users?.map(user => <User key={user.id} user={user}>
+                        records?.map(user => <User key={user.id} user={user}>
 
                         </User>)
                     }

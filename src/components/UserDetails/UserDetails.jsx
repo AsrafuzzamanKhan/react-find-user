@@ -14,7 +14,7 @@ const UserDetails = () => {
 
                 <div className="shadow-xl flex flex-col md:flex-row items-center py-12 my-12">
                     <figure className="w-1/2 flex justify-center ">
-                        <img className="w-[22vw]" src={userDetail?.image} alt="Album" />
+                        <img className="w-[20vw]" src={userDetail?.image} alt="Album" />
                     </figure>
                     <div className="card-body ">
                         <h2 className="card-title">{userDetail?.firstName} {userDetail?.lastName}</h2>

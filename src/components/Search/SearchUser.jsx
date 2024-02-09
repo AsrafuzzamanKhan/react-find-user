@@ -16,14 +16,14 @@ const SearchUser = () => {
     return (
         <div className="w-full min-h-screen">
             <SearchForm></SearchForm>
-            <div className=' container mx-auto w-full '>
+            <div className=' container mx-auto w-full mb-20'>
                 <div>
                     {/* title  */}
                     <div className="my-4 capitalize text-center font-semibold lg:text-left text-xl dark:text-white">
                         {filteredResults?.length > 0 ? `${filteredResults.length} results for ${searchTerm}` : `no result found for ${searchTerm} `}
                     </div>
                     {/* user grid */}
-                    <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-[15px] md:grid-[30px] w-full">
+                    <div className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-[15px] md:grid-[30px] w-full px-[1vw] lg:px-0">
                         {
                             filteredResults.map((user) => {
                                 return <User key={user.id}
